@@ -1,0 +1,243 @@
+:root {
+  --primary-color: #0284c7;
+  --primary-focus: #0369a1;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --text-color: #0f172a;
+  --text-muted: #475569;
+  --highlight-bg: #fef08a;
+  --highlight-border: #ca8a04;
+  --focus-ring: #005fcc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+  padding: 1.5rem 1rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  background: var(--card-bg);
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Custom Checkbox / Toggle styling */
+input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* Visible focus ring across all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* Button styles */
+.cta-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.cta-btn:hover {
+  background-color: var(--primary-focus);
+}
+
+/* Target state when 'Highlight Differences' is active */
+.highlight-diffs tr.is-different {
+  background-color: var(--highlight-bg);
+}
+
+.highlight-diffs tr.is-different th,
+.highlight-diffs tr.is-different td {
+  border-color: var(--highlight-border);
+}
+
+/* Screen Reader Only Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- DESKTOP TABLE STYLES --- */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.comparison-table th[scope="row"] {
+  text-align: left;
+  font-weight: 600;
+  width: 25%;
+}
+
+.comparison-table thead th {
+  background-color: #f1f5f9;
+  vertical-align: top;
+}
+
+.plan-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.plan-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* --- NARROW-SCREEN MOBILE STYLES (Stacked Cards layout) --- */
+/* Target screens smaller than 640px (including 320px) */
+@media (max-width: 639px) {
+  .comparison-table,
+  .comparison-table thead,
+  .comparison-table tbody,
+  .comparison-table th,
+  .comparison-table td,
+  .comparison-table tr {
+    display: block;
+  }
+
+  /* Hide header visually while preserving semantics */
+  .comparison-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .comparison-table tbody tr {
+    margin-bottom: 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Format Feature Label as Card Header */
+  .comparison-table th[scope="row"] {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    font-size: 1.1rem;
+    padding: 0.75rem 0;
+    text-align: left;
+    background: transparent;
+  }
+
+  .comparison-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 0;
+  }
+
+  .comparison-table td:last-child {
+    border-bottom: none;
+  }
+
+  /* Prepend Plan name to data cells using data-plan attribute */
+  .comparison-table td::before {
+    content: attr(data-plan);
+    font-weight: 600;
+    text-align: left;
+    color: var(--text-muted);
+    padding-right: 1rem;
+  }
+
+  /* Highlight styling for mobile stacked cards */
+  .highlight-diffs .comparison-table tbody tr.is-different {
+    background-color: var(--highlight-bg);
+    border-color: var(--highlight-border);
+  }
+  
+  .highlight-diffs .comparison-table tbody tr.is-different th {
+    border-bottom-color: var(--highlight-border);
+  }
+}

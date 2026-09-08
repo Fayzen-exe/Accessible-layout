@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Plans Comparison</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Choose the Right Plan for You</h1>
+      <div class="controls">
+        <label class="toggle-label" for="diff-toggle">
+          <input type="checkbox" id="diff-toggle" aria-controls="compare-table">
+          Highlight Differences
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <div class="table-container">
+        <table class="comparison-table" id="compare-table">
+          <caption>Full Feature Comparison of Starter, Pro, and Enterprise Plans</caption>
+          <thead>
+            <tr>
+              <th scope="col"><span class="sr-only">Features</span></th>
+              <th scope="col">
+                <div class="plan-header">
+                  <span>Starter</span>
+                  <span class="plan-price">$9/mo</span>
+                  <a href="#select-starter" class="cta-btn">Choose Starter</a>
+                </div>
+              </th>
+              <th scope="col">
+                <div class="plan-header">
+                  <span>Pro</span>
+                  <span class="plan-price">$29/mo</span>
+                  <a href="#select-pro" class="cta-btn">Choose Pro</a>
+                </div>
+              </th>
+              <th scope="col">
+                <div class="plan-header">
+                  <span>Enterprise</span>
+                  <span class="plan-price">$99/mo</span>
+                  <a href="#select-enterprise" class="cta-btn">Choose Enterprise</a>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Feature Rows -->
+            <tr data-diff="true">
+              <th scope="row">Monthly Projects</th>
+              <td data-plan="Starter">5</td>
+              <td data-plan="Pro">25</td>
+              <td data-plan="Enterprise">Unlimited</td>
+            </tr>
+            <tr data-diff="true">
+              <th scope="row">Cloud Storage</th>
+              <td data-plan="Starter">10 GB</td>
+              <td data-plan="Pro">100 GB</td>
+              <td data-plan="Enterprise">1 TB</td>
+            </tr>
+            <tr data-diff="false">
+              <th scope="row">SSL Security</th>
+              <td data-plan="Starter">Included</td>
+              <td data-plan="Pro">Included</td>
+              <td data-plan="Enterprise">Included</td>
+            </tr>
+            <tr data-diff="true">
+              <th scope="row">Team Members</th>
+              <td data-plan="Starter">1 User</td>
+              <td data-plan="Pro">5 Users</td>
+              <td data-plan="Enterprise">Unlimited</td>
+            </tr>
+            <tr data-diff="false">
+              <th scope="row">24/7 Server Uptime</th>
+              <td data-plan="Starter">Yes</td>
+              <td data-plan="Pro">Yes</td>
+              <td data-plan="Enterprise">Yes</td>
+            </tr>
+            <tr data-diff="true">
+              <th scope="row">Custom Domain</th>
+              <td data-plan="Starter">No</td>
+              <td data-plan="Pro">Yes</td>
+              <td data-plan="Enterprise">Yes</td>
+            </tr>
+            <tr data-diff="true">
+              <th scope="row">Analytics Dashboard</th>
+              <td data-plan="Starter">Basic</td>
+              <td data-plan="Pro">Advanced</td>
+              <td data-plan="Enterprise">Real-time Custom</td>
+            </tr>
+            <tr data-diff="false">
+              <th scope="row">Automated Backups</th>
+              <td data-plan="Starter">Daily</td>
+              <td data-plan="Pro">Daily</td>
+              <td data-plan="Enterprise">Daily</td>
+            </tr>
+            <tr data-diff="true">
+              <th scope="row">API Access</th>
+              <td data-plan="Starter">No</td>
+              <td data-plan="Pro">Read-only</td>
+              <td data-plan="Enterprise">Full Access</td>
+            </tr>
+            <tr data-diff="true">
+              <th scope="row">Support Response Time</th>
+              <td data-plan="Starter">48 hours</td>
+              <td data-plan="Pro">12 hours</td>
+              <td data-plan="Enterprise">1 hour Priority</td>
+            </tr>
+            <tr data-diff="true">
+              <th scope="row">Custom Branding</th>
+              <td data-plan="Starter">No</td>
+              <td data-plan="Pro">Yes</td>
+              <td data-plan="Enterprise">Yes</td>
+            </tr>
+            <tr data-diff="true">
+              <th scope="row">SSO Integration</th>
+              <td data-plan="Starter">No</td>
+              <td data-plan="Pro">No</td>
+              <td data-plan="Enterprise">Yes</td>
+            </tr>
+            <tr data-diff="false">
+              <th scope="row">Data Encryption</th>
+              <td data-plan="Starter">AES-256</td>
+              <td data-plan="Pro">AES-256</td>
+              <td data-plan="Enterprise">AES-256</td>
+            </tr>
+            <tr data-diff="true">
+              <th scope="row">SLA Guarantee</th>
+              <td data-plan="Starter">None</td>
+              <td data-plan="Pro">99.9%</td>
+              <td data-plan="Enterprise">99.99%</td>
+            </tr>
+            <tr data-diff="true">
+              <th scope="row">Dedicated Account Manager</th>
+              <td data-plan="Starter">No</td>
+              <td data-plan="Pro">No</td>
+              <td data-plan="Enterprise">Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
